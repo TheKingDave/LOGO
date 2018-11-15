@@ -1,4 +1,259 @@
-.checkbox-inline {
-    margin: .5em 0 .2em !important;
-    display: inline !important;
+/* Font */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url('/css/Roboto.woff2') format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+*, html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px 1fr;
+}
+
+/*
+Scroll bar
+Inspiration from https://codepen.io/akinjide/pen/BpggrZ
+*/
+.dark ::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background-color: #2B2B2B;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background-color: #545454;
+}
+
+.light ::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+}
+
+.light ::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+.light ::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+}
+
+.dark .hide-dark {
+    display: none;
+}
+
+.light .hide-light {
+    display: none;
+}
+
+textarea {
+    border: none;
+    resize: none;
+    background-color: inherit;
+    color: inherit;
+}
+
+textarea:focus {
+    outline-offset: 0;
+    outline: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.appbar {
+    height: 64px;
+    background-color: #372772;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.appbar-title {
+    line-height: 64px;
+    color: white;
+}
+
+button {
+    color: inherit;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox input:checked ~ .checkmark-unchecked {
+    display: none;
+}
+
+.checkbox input:not(:checked) ~ .checkmark-checked {
+    display: none;
+}
+
+.checkmark-checked, .checkmark-unchecked {
+    height: 1em;
+    width: 1em;
+    font-size: 24px;
+    fill: #6650a1;
+}
+
+.appbar-button {
+    flex: 0 0 auto;
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    display: inline-flex;
+    background-color: inherit;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.appbar-button:hover {
+    background-color: #6650a1;
+}
+
+.appbar-icon {
+    height: 1em;
+    width: 1em;
+    fill: white;
+    font-size: 24px;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.main.dark {
+    background: #2B2B2B;
+    color: white;
+}
+
+.main.light {
+    background: white;
+    color: #545454;
+}
+
+.part {
+    padding: 0 8px;
+}
+
+.part-code {
+    display: grid;
+    grid-template-rows: 48px 1fr;
+}
+
+.part-code h2 {
+    line-height: 48px;
+}
+
+.part-header {
+    display: flex;
+    align-items: center;
+    line-height: 48px;
+}
+
+.settings {
+
+}
+
+.field {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 32px;
+    align-items: center;
+}
+
+.field input {
+    width: 100%;
+    background-color: inherit;
+    border: none;
+    color: inherit;
+    border-bottom: #6650a1 solid 1px;
+}
+
+.field input:focus {
+    outline: none;
+}
+
+.code {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 8px;
+    height: 100%;
+}
+
+#run {
+    margin-left: 8px;
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    background-color: transparent;
+    border: #6650a1 solid 1px;
+    border-radius: 4px;
+}
+
+#run:hover {
+    background-color: rgba(102, 80, 161, 0.08);
+}
+
+.flex-spacer {
+    flex: 1 1 auto;
+}
+
+.dark .part:nth-child(2) {
+    border-left: #545454 solid 2px;
+    border-right: #545454 solid 2px;
+}
+
+.light .part:nth-child(2) {
+    border-left: #cccccc solid 2px;
+    border-right: #cccccc solid 2px;
+}
+
+.center-v {
+    display: flex;
+    justify-content: center;
+}
+
+.code-numbers {
+    text-align: right;
+}
+
+.canvas-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
 }
